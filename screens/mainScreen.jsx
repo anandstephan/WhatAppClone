@@ -1,5 +1,5 @@
 import React from 'react';
-import {View,Text,StyleSheet,SafeAreaView} from 'react-native'
+import {View,Text,StyleSheet,SafeAreaView, StatusBar} from 'react-native'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import Chat from './tabScreens/chat';
@@ -7,6 +7,7 @@ import Status from './tabScreens/status';
 import Calls from './tabScreens/calls';
 import { EvilIcons,Entypo } from '@expo/vector-icons';
 import Community from './tabScreens/community';
+
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -41,7 +42,9 @@ export default MainScreen
 const styles = StyleSheet.create({
   tabContainer:{
     flex:1,
-    borderColor:"black"
+    borderColor:"black",
+    marginTop:StatusBar.currentHeight
+
   },
   header:{
     flexDirection:"row",

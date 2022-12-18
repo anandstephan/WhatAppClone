@@ -12,7 +12,7 @@ const CallCard = () => {
          }}
        />
        <View style={styles.centerCardStyle}>
-         <Text style={styles.heading}>Mark Zuckerberg </Text>
+         <Text style={styles.heading}>Alisha </Text>
          <View style={styles.callDetails}>
          <MaterialIcons name="call-made" size={24} color="green" />
          <Text>Today, 10:35AM</Text>
