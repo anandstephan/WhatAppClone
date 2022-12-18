@@ -18,15 +18,15 @@ const  MainScreen = ()=> {
       <Text style={styles.logo}>WhatsApp</Text>
       </View>
       <View style={styles.rightHeader}>
-      <EvilIcons name="camera" size={20} color="black" />
-      <Entypo name="magnifying-glass" size={20} color="black" />
+      <EvilIcons name="camera" size={30} color="black" />
+      <Entypo name="magnifying-glass" size={25} color="black" />
       <Entypo name="dots-three-vertical" size={20} color="black" />
       </View>
       </View>
 
     <NavigationContainer>
     <Tab.Navigator>
-      <Tab.Screen name="commun" component={Community}/>
+      {/* <Tab.Screen name="commun" component={Community}/> */}
       <Tab.Screen name="Chats" component={Chat} />
       <Tab.Screen name="Status" component={Status} />
       <Tab.Screen name='Calls' component={Calls}/>
