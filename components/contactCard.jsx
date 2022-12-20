@@ -1,8 +1,11 @@
-import { View, Text,Image,StyleSheet,Dimensions } from 'react-native'
+import { View, Text,Image,StyleSheet,Dimensions, Pressable } from 'react-native'
 import React from 'react'
 
-const ContactCard = () => {
+const ContactCard = ({navigation}) => {
   return (
+    <Pressable onPress={()=>{
+      navigation.navigate('message')
+    }}>
     <View style={styles.container}>
    <Image
         style={styles.img}
@@ -18,6 +21,7 @@ const ContactCard = () => {
         <Text>18/12/2022</Text>
       </View>
     </View>
+    </Pressable>
   )
 }
 
@@ -28,6 +32,7 @@ const styles = StyleSheet.create({
         marginHorizontal:'1%',
         marginTop:'3%',
         flexDirection:"row",
+ 
 
     },
     img:{

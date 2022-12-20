@@ -4,14 +4,14 @@ import ContactCard from '../../components/contactCard'
 import { FloatingAction } from "react-native-floating-action";
 import { MaterialIcons } from '@expo/vector-icons';
 
-const Chat = () => {
+const Chat = ({navigation}) => {
   const contacts = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,]
   return (
     <View>
     <FlatList
     data={contacts}
     renderItem={({item}) =>{
-      return   <ContactCard/>
+      return   <ContactCard navigation={navigation}/>
     }}
     />
     <FloatingAction
