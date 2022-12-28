@@ -1,4 +1,4 @@
-import { View, Text,StyleSheet,Image,Dimensions } from 'react-native'
+import { View, Text,StyleSheet,Image,Dimensions, Pressable } from 'react-native'
 import { EvilIcons,Entypo,MaterialIcons,Ionicons } from '@expo/vector-icons';
 
 
@@ -14,6 +14,7 @@ const CustomHeader = ({messageHeader,headerShown,navigation}) => {
         headerShown ?
         <View style={styles.leftSide}>
         <Ionicons name="arrow-back" size={24} color="black" onPress={backHandler} />
+        <Pressable style={styles.profileDetails} onPress={()=>navigation.navigate('profileDetail  ')}>
         <Image
          style={styles.img}
          source={{
@@ -21,6 +22,7 @@ const CustomHeader = ({messageHeader,headerShown,navigation}) => {
          }}
        />
        <Text style={styles.phoneNumber}>+91-8979669612</Text>
+       </Pressable>
         </View>:
         <>
           <Text style={styles.logo}>WhatsApp</Text>
@@ -51,7 +53,7 @@ const styles = StyleSheet.create({
         flexDirection:"row",
         justifyContent:"space-between",
         marginHorizontal:10,
-        marginVertical:15
+        marginVertical:15,
       },
       leftHeader:{
         flex:3,
@@ -80,5 +82,10 @@ const styles = StyleSheet.create({
     phoneNumber:{
       fontSize:14,
       marginLeft:'2%'
+    },
+    profileDetails:{
+flexDirection:"row",
+justifyContent:'center',
+alignItems:"center"
     }
 })
