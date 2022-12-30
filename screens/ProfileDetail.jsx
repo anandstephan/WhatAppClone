@@ -1,10 +1,14 @@
-import { View, Text,SafeAreaView,StyleSheet,StatusBar,Image, Dimensions, Pressable } from 'react-native'
-import React from 'react'
-import { AntDesign,Entypo,MaterialIcons,FontAwesome } from '@expo/vector-icons';
+import { View, Text,SafeAreaView,StyleSheet,StatusBar,Image, Pressable, ScrollView,Switch } from 'react-native'
+import React, { useState } from 'react'
+import { AntDesign,Entypo,MaterialIcons,FontAwesome,MaterialCommunityIcons,FontAwesome5 } from '@expo/vector-icons';
 
 const ProfileDetail = ({navigation}) => {
+
+  const [switchButton,setSwitchButton] = useState(false)
+
   return (
     <SafeAreaView style={styles.container} >
+      <ScrollView>
             <View style={styles.shadowEffect}>
       <View style={styles.header}>
         <Pressable onPress={navigation.goBack}>
@@ -20,7 +24,7 @@ const ProfileDetail = ({navigation}) => {
       </View>
 
       <View style={styles.mainContainer}>
-        <Text style={styles.heading}>Anand</Text>
+        <Text style={styles.heading}>Alisha</Text>
         <Text style={styles.mobileNo}>+91-8979669612</Text>
       </View>
       <View style={styles.secondaryContainer}>
@@ -45,13 +49,26 @@ const ProfileDetail = ({navigation}) => {
       <View style={[styles.shadowEffect,styles.status]}>
          <Text style={{fontSize:17}}>Hey there! I am using WhatsApp</Text>
       </View>
+      <View style={[styles.shadowEffect,styles.status]}>
+         <Text style={{fontSize:17}}>Media,links, and docs</Text>
+      </View>
       <View  style={[styles.shadowEffect,styles.status]}>
         <View style={styles.card}>
         <FontAwesome name="bell" size={24} color="black" />
+        <View style={styles.switchButton}>
         <Text style={{marginLeft:15,fontSize:17}}>Mute notifications</Text>
+        <Switch
+        trackColor={{ false: "#767577", true: "#81b0ff" }}
+        thumbColor={switchButton ? "#f4f3f4" : "#000"}
+        ios_backgroundColor="#3e3e3e"
+        onChange={setSwitchButton}
+        value={switchButton}
+     
+      />
+      </View>
         </View>
         <View style={styles.card}>
-        <FontAwesome name="bell" size={24} color="black" />
+        <FontAwesome5 name="itunes-note" size={24} color="black" />
         <Text style={{marginLeft:15,fontSize:17}}>Custom notifications</Text>
         </View>
         <View style={styles.card}>
@@ -59,6 +76,40 @@ const ProfileDetail = ({navigation}) => {
         <Text style={{marginLeft:15,fontSize:17}}>Media visibility</Text>
         </View>
       </View>
+      <View  style={[styles.shadowEffect,styles.status]}>
+        <View style={styles.card}>
+        <MaterialIcons name="lock" size={24} color="black" />
+        <Text style={{marginLeft:15,fontSize:17}}>Encryption</Text>
+        </View>
+        <View style={styles.card}>
+        <MaterialCommunityIcons name="clock-check-outline" size={24} color="black" />
+        <Text style={{marginLeft:15,fontSize:17}}>Disappearing messages</Text>
+        </View>
+   
+      </View>
+      <View  style={[styles.shadowEffect,styles.status]}>
+         <View style={{marginBottom:10}}>
+   <Text style={{fontSize:13,color:'gray'}}>No groups in common</Text>
+   </View>
+        <View style={styles.card}>
+        <FontAwesome name="group" size={24} color="black" />
+        <Text style={{marginLeft:15,fontSize:17}}>Create group with Alisha</Text>
+        </View>
+
+   
+      </View>
+      <View  style={[styles.shadowEffect,styles.status]}>
+        <View style={styles.card}>
+        <Entypo name="block" size={24} color="red" />
+        <Text style={{marginLeft:15,fontSize:17}}>Block Alisha</Text>
+        </View>
+        <View style={styles.card}>
+        <MaterialIcons name="thumb-down" size={24} color="red" />
+        <Text style={{marginLeft:15,fontSize:17}}>Report Alisha</Text>
+        </View>
+   
+      </View>
+      </ScrollView>
     </SafeAreaView >
   )
 }
@@ -101,11 +152,11 @@ const styles = StyleSheet.create({
         shadowEffect:{
           padding:10,
           backgroundColor: 'white',
-          elevation: 15,
+          elevation: 5,
           shadowColor: '#000',
           shadowOffset: {width: 1, height: 1},
           shadowOpacity: 0.1,
-          shadowRadius: 20,
+          shadowRadius: 5,
         },
         status:{
           justifyContent:"center",
@@ -116,6 +167,11 @@ const styles = StyleSheet.create({
           flexDirection:'row',
           alignItems:"center",
           marginBottom:25
-
+        },
+        switchButton:{
+          flexDirection:"row",
+          alignItems:"center",
+          justifyContent:"space-between",
+          flex:1
         }
 })

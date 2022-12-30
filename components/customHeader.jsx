@@ -14,7 +14,7 @@ const CustomHeader = ({messageHeader,headerShown,navigation}) => {
         headerShown ?
         <View style={styles.leftSide}>
         <Ionicons name="arrow-back" size={24} color="black" onPress={backHandler} />
-        <Pressable style={styles.profileDetails} onPress={()=>navigation.navigate('profileDetail  ')}>
+        <Pressable style={styles.profileDetails} onPress={()=>navigation.navigate('profileDetail')}>
         <Image
          style={styles.img}
          source={{
