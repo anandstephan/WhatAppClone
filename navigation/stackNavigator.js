@@ -1,4 +1,5 @@
 import { createStackNavigator } from '@react-navigation/stack';
+import CameraScreen from '../screens/Camera';
 import Home from '../screens/Home';
 import Message from '../screens/Message';
 import Stories from '../screens/Stories';
@@ -17,6 +18,7 @@ const StackNavigator = () => {
     <Stack.Screen name="message" component={Message}/>
     <Stack.Screen name="stories" component={Stories}/>
     <Stack.Screen name="textStatus" component={TextStatus}/>
+    <Stack.Screen name="camera" component={CameraScreen}/>
   </Stack.Navigator>
   )
 }

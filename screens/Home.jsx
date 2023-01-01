@@ -20,7 +20,6 @@ const styles = StyleSheet.create({
   tabContainer:{
     flex:1,
     borderColor:"black",
-    marginTop:StatusBar.currentHeight
   }
 
 })

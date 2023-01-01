@@ -8,8 +8,7 @@ const TextStatus = ({navigation}) => {
 
   return (
     <SafeAreaView style={styles.container}>
- 
-      <TextInput style={styles.text} placeholder="Enter Your Status" placeholderTextColor={'#FFFFFF'}/>
+      <TextInput style={styles.text} placeholder="Enter Your Status" placeholderTextColor={'#FFFFFF'} />
     </SafeAreaView>
   )
 }
@@ -23,7 +22,6 @@ container:{
     justifyContent:"center",
     alignItems:'center',
     borderColor:"black",
-    marginTop:StatusBar.currentHeight,
     backgroundColor:"red"
 },
 text:{

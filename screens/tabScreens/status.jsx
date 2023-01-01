@@ -1,48 +1,16 @@
-import { View, Text,StyleSheet,FlatList, Dimensions,Pressable } from 'react-native'
+import { View,FlatList} from 'react-native'
 import React,{useState} from 'react'
 import StatusHelperComponent from '../../components/statushelperComponent'
 import { FloatingAction } from "react-native-floating-action";
-import { Ionicons,Entypo } from '@expo/vector-icons';
-import { Camera, CameraType } from 'expo-camera';
+import { Ionicons,Entypo,FontAwesome,EvilIcons } from '@expo/vector-icons';
 
-const CameraScreen = ({type,toggleCameraType}) =>{
-  return <View style={styles.cameraContainer}>    
-  <Camera style={styles.camera} type={type}>
-  <View style={styles.buttonContainer}>
-    <Pressable style={styles.button} onPress={toggleCameraType}>
-      <Text style={styles.text}>Flip Camera</Text>
-    </Pressable>
-  </View>
-</Camera>
-</View>
-}
+
 
 const Status = ({navigation}) => {
-  const [type, setType] = useState(CameraType.back);
-  const [shownCamera,setShownCamera] = useState(false)
-  const [permission, requestPermission] = Camera.useCameraPermissions();
-
-
-  function toggleCameraType() {
-    console.log(type)
-    setType(current => (current === CameraType.back ? CameraType.front : CameraType.back));
-
-
-  }
-
-if(permission!=='granted'){
-  requestPermission()
  
-}
 
   return (
     <View>
-   
-      {shownCamera 
-      ?
-      <CameraScreen type={type} toggleCameraType={toggleCameraType}/> 
-      : 
-      <>
       <FlatList
       data={[1]}
       keyExtractor={item =>item}
@@ -63,7 +31,7 @@ if(permission!=='granted'){
             console.log(`selected button: ${name}`);
           }}
           animated={true}
-          onPressMain={setShownCamera}
+          onPressMain={()=>navigation.navigate('camera')}
         />
         </View>
         <View>
@@ -79,9 +47,6 @@ if(permission!=='granted'){
 
         />
         </View>
- 
-        </> }
-  
 
 </View>
       
@@ -93,22 +58,3 @@ if(permission!=='granted'){
 export default Status
 
 
-const styles = StyleSheet.create({
-  cameraContainer:{
-    height:'100%',
-    width:'100%'
-  },
-  camera:{
-    height:'100%',
-    width:'100%'
-  },
-  buttonContainer:{
-    borderWidth:3
-  },
-  button:{
-    backgroundColor:"red"
-  },
-  text:{
-    fontSize:20
-  }
-})

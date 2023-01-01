@@ -24,8 +24,9 @@ const Stories = ({navigation}) => {
    images={items}
    duration={20}  
    containerStyle={{
+      marginVertical:'2%',
        width: Dimensions.get('window').width,
-       height: Dimensions.get('window').height,
+       height: '100%',
        paddingHorizontal:10,
 
    }}
