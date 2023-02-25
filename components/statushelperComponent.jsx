@@ -2,7 +2,7 @@ import { View, Text,StyleSheet,FlatList,Dimensions } from 'react-native'
 import React from 'react'
 import StatusCard from './statusCard'
 
-const StatusHelperComponent = ({title,data,showTitle=true,time}) => {
+const StatusHelperComponent = ({title,data,showTitle=true,time,navigation}) => {
   return (
     <>
     {showTitle && <Text style={styles.status}>{title}</Text> }       
@@ -10,7 +10,7 @@ const StatusHelperComponent = ({title,data,showTitle=true,time}) => {
     data={data}
     keyExtractor={item =>item}
     renderItem={({item}) =>{
-      return      <StatusCard timeCreated={time}/>
+      return      <StatusCard timeCreated={time} navigation={navigation}/>
     }}
 
     />

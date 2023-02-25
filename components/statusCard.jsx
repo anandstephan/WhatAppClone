@@ -1,8 +1,9 @@
-import { View, Text,StyleSheet,Image, Dimensions } from 'react-native'
+import { View, Text,StyleSheet,Image, Dimensions, Pressable } from 'react-native'
 import React from 'react'
 
-const StatusCard = ({timeCreated}) => {
+const StatusCard = ({timeCreated,navigation}) => {
   return (
+    <Pressable onPress={()=>navigation.navigate('stories')}>
     <View style={styles.container}>
         <Image
         source={{
@@ -15,6 +16,7 @@ const StatusCard = ({timeCreated}) => {
             <Text>{timeCreated}</Text>
         </View>
     </View>
+    </Pressable>
   )
 }
 
@@ -31,6 +33,7 @@ const styles = StyleSheet.create({
         width:Dimensions.get('screen').width/8,
         height:Dimensions.get('screen').height/17,
         borderRadius:Dimensions.get('screen').width
+
     },
     card:{
         marginHorizontal:'2%',

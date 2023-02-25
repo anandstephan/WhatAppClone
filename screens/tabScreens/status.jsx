@@ -5,7 +5,8 @@ import { FloatingAction } from "react-native-floating-action";
 import { Ionicons,Entypo } from '@expo/vector-icons';
 
 
-const Status = () => {
+const Status = ({navigation}) => {
+
   return (
     <View >
       <FlatList
@@ -13,9 +14,9 @@ const Status = () => {
       keyExtractor={item =>item}
       renderItem={()=>{
         return <>
-        <StatusHelperComponent title="" data={['']} showTitle={false} time="Tap to add status update"/>    
-        <StatusHelperComponent title="Recent updates" data={['23','d']} time="18 minutes ago"/>
-        <StatusHelperComponent title="Viewed updates" data={[1,2,3,4,5,6,8,7,22,24,56,47]} time="18 minutes ago"/>
+        <StatusHelperComponent title="" data={['']} showTitle={false} time="Tap to add status update" navigation={navigation}/>    
+        <StatusHelperComponent title="Recent updates" data={['23','d']} time="18 minutes ago" navigation={navigation}/>
+        <StatusHelperComponent title="Viewed updates" data={[1,2,3,4,5,6,8,7,22,24,56,47]} time="18 minutes ago" navigation={navigation}/>
         </>
       }}
       />
