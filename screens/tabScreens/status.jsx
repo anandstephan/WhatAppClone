@@ -1,14 +1,16 @@
-import { View, Text,StyleSheet,FlatList, Dimensions } from 'react-native'
-import React from 'react'
+import { View,FlatList} from 'react-native'
+import React,{useState} from 'react'
 import StatusHelperComponent from '../../components/statushelperComponent'
 import { FloatingAction } from "react-native-floating-action";
-import { Ionicons,Entypo } from '@expo/vector-icons';
+import { Ionicons,Entypo,FontAwesome,EvilIcons } from '@expo/vector-icons';
+
 
 
 const Status = ({navigation}) => {
+ 
 
   return (
-    <View >
+    <View>
       <FlatList
       data={[1]}
       keyExtractor={item =>item}
@@ -29,7 +31,7 @@ const Status = ({navigation}) => {
             console.log(`selected button: ${name}`);
           }}
           animated={true}
-   
+          onPressMain={()=>navigation.navigate('camera')}
         />
         </View>
         <View>
@@ -41,11 +43,10 @@ const Status = ({navigation}) => {
             console.log(`selected button: ${name}`);
           }}
           animated={true}
+          onPressMain={()=>navigation.navigate('textStatus')}
 
         />
         </View>
- 
-   
 
 </View>
       
@@ -55,3 +56,5 @@ const Status = ({navigation}) => {
 }
 
 export default Status
+
+

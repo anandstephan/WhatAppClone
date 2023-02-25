@@ -2,7 +2,7 @@ import { View, Text,StyleSheet,Image,Dimensions, Pressable } from 'react-native'
 import { EvilIcons,Entypo,MaterialIcons,Ionicons } from '@expo/vector-icons';
 
 
-const CustomHeader = ({messageHeader,headerShown,navigation}) => {
+const CustomHeader = ({messageHeader,headerShown,navigation,storiesThreeDot}) => {
   const backHandler=()=>{
     navigation.goBack() 
   }
@@ -30,18 +30,21 @@ const CustomHeader = ({messageHeader,headerShown,navigation}) => {
       }
 
   </View>
-  <View style={styles.rightHeader}>
+  {storiesThreeDot ? <Entypo name="dots-three-vertical" size={20} color="black" /> :  <View style={styles.rightHeader}>
+    
     {messageHeader ? <>
       <MaterialIcons name="videocam" size={25} color="black" />
   <Ionicons name="ios-call" size={24} color="black" />
     </>:<>
     <EvilIcons name="camera" size={30} color="black" />
   <Entypo name="magnifying-glass" size={25} color="black" />
-    </>}
+    </>
+    }
 
 
-  <Entypo name="dots-three-vertical" size={20} color="black" />
-  </View>
+  <Entypo name="dots-three-vertical" size={20} color="black" /> 
+  </View> }
+
   </View>
   )
 }
@@ -63,12 +66,12 @@ const styles = StyleSheet.create({
         flexDirection:"row",
         justifyContent:"space-between",
         alignItems:"center",
+
       },
       logo:{
         fontSize:18
       },
       img:{
-
         width:Dimensions.get('screen').width/8,
         height:Dimensions.get('screen').height/16,
         borderRadius:100

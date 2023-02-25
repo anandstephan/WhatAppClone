@@ -48,7 +48,6 @@ export default Message
 
 const styles = StyleSheet.create({
   container:{
-    marginTop:StatusBar.currentHeight,
     flex:1,
 
   },
